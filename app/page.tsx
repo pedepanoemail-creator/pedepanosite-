@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Header from '@/components/home/Header';
 import HeroBanner from '@/components/home/HeroBanner';
