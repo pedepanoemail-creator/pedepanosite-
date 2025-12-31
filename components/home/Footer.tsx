@@ -2,51 +2,58 @@ import React from 'react';
 
 const footerSections = [
   {
-    title: 'Pedepano',
+    title: "Sobre Nós",
     links: [
-      { label: 'Reflexão, humor e crescimento emocional.', href: '#', isText: true }
+      { label: "Nossa História", href: "#" },
+      { label: "Loja Física", href: "#" },
+      { label: "Trabalhe Conosco", href: "#" }
     ]
   },
   {
-    title: 'Links',
+    title: "Ajuda",
     links: [
-      { label: 'Blog', href: '#' },
-      { label: 'Quem Somos', href: '#' },
-      { label: 'FAQ', href: '#' }
+      { label: "Trocas e Devoluções", href: "#" },
+      { label: "Envio e Prazos", href: "#" },
+      { label: "Pagamentos", href: "#" }
     ]
   },
   {
-    title: 'Legal',
+    title: "Contato",
     links: [
-      { label: 'Privacidade', href: '#' },
-      { label: 'Termos de Uso', href: '#' },
-      { label: 'Contato', href: '#' }
+      { label: "pedepano@exemplo.com", href: "mailto:pedepano@exemplo.com" },
+      { label: "(11) 9999-9999", href: "tel:1199999999" }
     ]
   }
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-zinc-800 py-10 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-sm text-zinc-400">
-        {footerSections.map((section, index) => (
-          <div key={index}>
-            <p className="font-bold text-zinc-200 mb-2">{section.title}</p>
-            <ul className="space-y-2">
-              {section.links.map((link, linkIndex) => (
-                <li key={linkIndex}>
-                  {link.isText ? (
-                    <p>{link.label}</p>
-                  ) : (
-                    <a href={link.href} className="hover:text-[#DC0000] transition-colors">
+    <footer className="bg-black text-white py-12 border-t border-red-900/30">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {footerSections.map((section, index) => (
+            <div key={index}>
+              <h3 className="text-red-600 font-bold text-lg mb-4 uppercase tracking-wider">
+                {section.title}
+              </h3>
+              <ul className="space-y-2">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a 
+                      href={link.href} 
+                      className="text-gray-400 hover:text-red-500 transition-colors"
+                    >
                       {link.label}
                     </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Pede Pano. Todos os direitos reservados.</p>
+        </div>
       </div>
     </footer>
   );
